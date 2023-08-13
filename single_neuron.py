@@ -11,6 +11,8 @@ bias = 0.1
 
 for i in range(10):
     for j in range(10):
-        u = x_0[i] * w_x_0 * x_1[j] * w_x_1 + bias
+        u = x_0[i] * w_x_0 + x_1[j] * w_x_1 + bias
         y = 1 / (1 + np.exp(-u))
-        Z[i*10+j] = y
+        Z[i*10+j] = round(y, 4)
+
+print(Z)
