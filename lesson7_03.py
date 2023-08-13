@@ -1,12 +1,12 @@
 import random as rnd
 
-def play():
-    print("==========猜數字遊戲==========\n\n")
+def play() -> None:
+    print("==========猜數字遊戲==========\n")
     max = 100
     min = 1
     tar = rnd.randrange(min, max);
     ct = 0
-    print(tar)
+    #print(tar)
     while(True):
         try:
             guess = int(input(f"第{(ct+1)}次，請輸入數字({min}~{max}):"))
@@ -28,9 +28,10 @@ def play():
 
 con = "Y"
 while (con.upper() == "Y"):
+    #call function
     play()
     while True:
         con = input("是否再玩一次?(Y/N):")
-        if(con.upper() == "Y") or (con.upper() == "N"):
+        if (con.upper() == "Y") or (con.upper() == "N"):
             break
 print("遊戲結束");
