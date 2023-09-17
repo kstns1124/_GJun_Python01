@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 #inputs
 x_0 = np.arange(-1.0, 1.0, 0.1)
@@ -22,6 +23,7 @@ def output_layer(x, w, b):
     u = np.dot(x,w) + b
     return np.exp(u)/np.sum((np.exp(u)))
 
+
 for i in range(20):
     for j in range(20):
         inp =np.array([x_0[i], x_1[j]])
@@ -30,3 +32,23 @@ for i in range(20):
         Z[i*20 + j] = out
 
 print(Z)
+
+# PLOT
+plus_x_0 = []
+plus_x_1 = []
+circle_x_0 = []
+circle_x_1 = []
+
+for i in range(20):
+    for j in range(20):
+        if (Z[i*20+j][0] > Z[i*20+j][1]):
+            plus_x_0.append(x_0[i])
+            plus_x_1.append(x_1[j])
+        else: 
+            circle_x_0.append(x_0[i])
+            circle_x_1.append(x_1[j])
+
+plt.scatter(plus_x_0, plus_x_1, marker='+')
+plt.scatter(circle_x_0, circle_x_1, marker='o')
+plt.show()
+
